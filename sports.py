@@ -35,9 +35,9 @@ def run_quiz():
 
    print(f"\nQuiz completed! Your score is {score}/{len(quiz_questions)}.")
    
-   if score > 4:
-      print("Shame on you, you didn't get full points!!!!")
-   elif score = 4:
+   if score > 3:
+      print("Shame on you, you didn't get full points!!!! You simply must try again.")
+   elif score = 3:
       print("Good work.")
    else:
       print("You're all done!")
