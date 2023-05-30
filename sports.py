@@ -74,3 +74,6 @@ def main_menu():
 
 # Run the main menu
 main_menu()
+
+# Congratulate the user
+print("Good job! Thank you for playing this game.")
