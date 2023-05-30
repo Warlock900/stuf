@@ -34,6 +34,13 @@ def run_quiz():
            score += 1
 
    print(f"\nQuiz completed! Your score is {score}/{len(quiz_questions)}.")
+   
+   if score > 4:
+      print("Shame on you, you didn't get full points!!!!")
+   elif score = 4:
+      print("Good work.")
+   else:
+      print("You're all done!")
 
 # Function to save the quiz
 def save_quiz():
@@ -76,4 +83,4 @@ def main_menu():
 main_menu()
 
 # Congratulate the user
-print("Good job! Thank you for playing this game.")
+print("Good job! Thank you for playing this game. Brought to you by Hansley, Miles, Rachel, Benji, Patrick.")
