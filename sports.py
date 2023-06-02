@@ -1,6 +1,5 @@
 import pickle
 
-# Define the quiz questions
 quiz_questions = [
    {
        "question": "Which country won the FIFA World Cup in 2018?",
@@ -19,7 +18,6 @@ quiz_questions = [
    }
 ]
 
-# Function to administer the quiz
 def run_quiz():
    score = 0
 
@@ -42,13 +40,11 @@ def run_quiz():
    else:
       print("You're all done!")
 
-# Function to save the quiz
 def save_quiz():
    with open("quiz.pickle", "wb") as file:
        pickle.dump(quiz_questions, file)
    print("Quiz saved successfully!")
 
-# Function to load the quiz
 def load_quiz():
    global quiz_questions
    try:
@@ -58,7 +54,6 @@ def load_quiz():
    except FileNotFoundError:
        print("No saved quiz found.")
 
-# Main menu
 def main_menu():
    while True:
        print("\n--- Sports Quiz ---")
@@ -79,8 +74,6 @@ def main_menu():
        else:
            print("Invalid choice. Please try again.")
 
-# Run the main menu
 main_menu()
 
-# Congratulate the user
 print("Good job! Thank you for playing this game. Brought to you by Hansley, Miles, Rachel, Benji, Patrick.")
