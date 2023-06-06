@@ -1,79 +1,67 @@
 import pickle
 
-quiz_questions = [
-   {
-       "question": "Which country won the FIFA World Cup in 2018?",
-       "options": ["France", "Brazil", "Germany", "Spain"],
-       "answer": "France"
-   },
-   {
-       "question": "Who holds the record for the most home runs in Major League Baseball?",
-       "options": ["Babe Ruth", "Barry Bonds", "Hank Aaron", "Alex Rodriguez"],
-       "answer": "Barry Bonds"
-   },
-   {
-       "question": "Who won the NBA Finals in 2020?",
-       "options": ["Los Angeles Lakers", "Golden State Warriors", "Toronto Raptors", "Miami Heat"],
-       "answer": "Los Angeles Lakers"
-   }
-]
+class Quiz:
+    def __init__(self):
+        self.questions = []
+        self.score = 0
 
-def run_quiz():
-   score = 0
+    def add_question(self, question, answer):
+        self.questions.append((question, answer))
 
-   for question in quiz_questions:
-       print(question["question"])
-       for i, option in enumerate(question["options"]):
-           print(f"{i+1}. {option}")
+    def run_quiz(self):
+        for question, answer in self.questions:
+            user_answer = input(question + " ")
+            if user_answer.lower() == answer.lower():
+                self.score += 1
 
-       user_answer = input("Enter your answer (1-4): ")
+    def save_score(self, name):
+        try:
+            with open("high_scores.pkl", "rb") as file:
+                high_scores = pickle.load(file)
+        except FileNotFoundError:
+            high_scores = []
 
-       if user_answer == str(question["options"].index(question["answer"]) + 1):
-           score += 1
+        high_scores.append((name, self.score))
 
-   print(f"\nQuiz completed! Your score is {score}/{len(quiz_questions)}.")
-   
-   if score < 3:
-      print("Shame on you, you didn't get full points!!!! You simply must try again.")
-   elif score == 3:
-      print("Good work.")
-   else:
-      print("You're all done!")
+        with open("high_scores.pkl", "wb") as file:
+            pickle.dump(high_scores, file)
 
-def save_quiz():
-   with open("quiz.pickle", "wb") as file:
-       pickle.dump(quiz_questions, file)
-   print("Quiz saved successfully!")
+    def show_high_scores(self):
+        try:
+            with open("high_scores.pkl", "rb") as file:
+                high_scores = pickle.load(file)
+        except FileNotFoundError:
+            print("No high scores yet.")
+            return
 
-def load_quiz():
-   global quiz_questions
-   try:
-       with open("quiz.pickle", "rb") as file:
-           quiz_questions = pickle.load(file)
-       print("Quiz loaded successfully!")
-   except FileNotFoundError:
-       print("No saved quiz found.")
+        print("High Scores:")
+        for name, score in high_scores:
+            print(name + ": " + str(score))
 
-def main_menu():
-   while True:
-       print("\n--- Sports Quiz ---")
-       print("1. Start Quiz")
-       print("2. Save Quiz")
-       print("3. Load Quiz")
-       print("4. Exit")
-       choice = input("Enter your choice (1-4): ")
+quiz = Quiz()
 
-       if choice == "1":
-           run_quiz()
-       elif choice == "2":
-           save_quiz()
-       elif choice == "3":
-           load_quiz()
-       elif choice == "4":
-           break
-       else:
-           print("Invalid choice. Please try again.")
+quiz.add_question("What's the diameter of a basketball hoop in inches?", "18")
+quiz.add_question("The Olympics are held every how many years?", "4")
+quiz.add_question("What sport is best known as the king of sports?", "Soccer".lower())
+quiz.add_question("What is the national sport of Canada?", "Lacrosse".lower())
+quiz.add_question("What country has competed the most times in the Summer Olympics yet hasn't won a gold medal?", "Philippines".lower())
 
-main_menu()
+while True:
+    print("Welcome to the Sports Trivia Quiz!")
+    print("1. Start Quiz")
+    print("2. View High Scores")
+    print("3. Quit")
+    choice = input("Enter your choice (1-3): ")
 
-print("Good job! Thank you for playing this game. Brought to you by Hansley, Miles, Rachel, Benji, Patrick.")
+    if choice == "1":
+        name = input("Enter your name: ")
+        quiz.run_quiz()
+        quiz.save_score(name)
+        print("Quiz completed. Your score has been saved.")
+    elif choice == "2":
+        quiz.show_high_scores()
+    elif choice == "3":
+        print("Thank you for playing the Sports Trivia Quiz!")
+        break
+    else:
+        print("You can't do that. Please try again.")
