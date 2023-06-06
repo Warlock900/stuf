@@ -61,7 +61,7 @@ while True:
     elif choice == "2":
         quiz.show_high_scores()
     elif choice == "3":
-        print("Thank you for playing the Sports Trivia Quiz!")
+        print("Thank you for playing! Brought to you by Miles, Hansley, Benji, Rachel, and Patrick")
         break
     else:
         print("You can't do that. Please try again.")
