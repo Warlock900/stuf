@@ -42,9 +42,13 @@ quiz = Quiz()
 
 quiz.add_question("What's the diameter of a basketball hoop in inches?", "18")
 quiz.add_question("The Olympics are held every how many years?", "4")
-quiz.add_question("What sport is best known as the king of sports?", "Soccer".lower())
+quiz.add_question("What do the rings in the Olympics represent", "The Continents".lower())
 quiz.add_question("What is the national sport of Canada?", "Lacrosse".lower())
 quiz.add_question("What country has competed the most times in the Summer Olympics yet hasn't won a gold medal?", "Philippines".lower())
+quiz.add_question("In what game is love a score?", "Tennis".lower())
+quiz.add_question("What type of race is the Tour de France?", "Biking".lower())
+quiz.add_question("How long is a marathon?", "26.2 Miles".lower())
+quiz.add_question("In football, how many points does a touchdown hold?", "Six".lower())
 
 while True:
     print("Welcome to the Sports Trivia Quiz!")
