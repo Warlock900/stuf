@@ -37,3 +37,17 @@ class Quiz:
         print("High Scores:")
         for name, score in high_scores:
             print(name + ": " + str(score))
+            
+quiz = Quiz()
+
+quiz.add_question("What's the diameter of a basketball hoop in inches?", "18")
+quiz.add_question("The Olympics are held every how many years?", "4")
+quiz.add_question("What do the rings in the Olympics represent", "The Continents".lower())
+quiz.add_question("What is the national sport of Canada?", "Lacrosse".lower())
+quiz.add_question("What country has completed the most times in the Summer Olympics yet hasn't won a gold medal?", "Philippines".lower())
+quiz.add_question("In what game is love a score?", "Tennis".lower())
+quiz.add_question("What type of race is the Tour de France?", "Biking".lower())
+quiz.add_question("How long is a marathon in miles?", "26.2".lower())
+quiz.add_question("In football, how many points does a touchdown hold?", "Six".lower())
+
+
