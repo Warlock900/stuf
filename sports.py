@@ -47,7 +47,7 @@ quiz.add_question("What is the national sport of Canada?", "Lacrosse".lower())
 quiz.add_question("What country has competed the most times in the Summer Olympics yet hasn't won a gold medal?", "Philippines".lower())
 quiz.add_question("In what game is love a score?", "Tennis".lower())
 quiz.add_question("What type of race is the Tour de France?", "Biking".lower())
-quiz.add_question("How long is a marathon?", "26.2 Miles".lower())
+quiz.add_question("How long is a marathon in miles?", "26.2".lower())
 quiz.add_question("In football, how many points does a touchdown hold?", "Six".lower())
 
 while True:
