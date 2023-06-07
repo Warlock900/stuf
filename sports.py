@@ -67,5 +67,5 @@ while True:
     elif choice == "3":
         print("Thank you for playing! Brought to you by Miles, Hansley, Benji, Rachel, and Patrick")
         break
-    else:
+    if choice != "1" and choice != "2" and choice != "3":
         print("You can't do that. Please try again.")
