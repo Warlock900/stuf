@@ -50,4 +50,9 @@ quiz.add_question("What type of race is the Tour de France?", "Biking".lower())
 quiz.add_question("How long is a marathon in miles?", "26.2".lower())
 quiz.add_question("In football, how many points does a touchdown hold?", "Six".lower())
 
-
+while True:
+    print("Welcome to the Sports Trivia Quiz!")
+    print("1. Start Quiz")
+    print("2. View High Scores")
+    print("3. Quit")
+    choice = input("Enter your choice (1-3): ")
