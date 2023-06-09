@@ -56,3 +56,16 @@ while True:
     print("2. View High Scores")
     print("3. Quit")
     choice = input("Enter your choice (1-3): ")
+    
+    if choice == "1":
+        name = input("Enter name:")
+        quiz.run_quiz()
+        quiz.save_score(name)
+        print("Quiz completed. Your score has been saved>")
+    elif choice == "2":
+        quiz.show_high_scores()
+    elif choice == "3":
+        print("Thank you for playing! Brought to you by Miles, Hansley, Benji, Rachel, and Patrick")
+        break
+    if choice != "1" and choice != "2" and choice !="3":
+        print("You can't do that. Please try again.")
