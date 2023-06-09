@@ -1,19 +1,25 @@
 import pickle
 
+count = 0
+
+
 with open("questions.py", "rb") as file:
     previous_Qs = pickle.load(file) 
     if previous_Qs == None:
-        print()
+        previous_Qs = {
+            "questions" : "none"
+        }
     else:
-        print("here is the last question added by a users...")
-        print(previous_Qs)
+        print("here are previous questions added by users...")
+        for key, value in previous_Qs.items():
+            print(previous_Qs[key])
+            count += 1
 
-class Quiz():
-    def add_user_question(self):
-        qtoadd = input("What question would you like to add to the quiz?")
-        with open("questions.py", "wb") as file:
-            pickle.dump(qtoadd, file)
-    
-quiz = Quiz()
 
-quiz.add_user_question()
+
+qtoadd = input("what question would you like to add to the list of questoins?")
+
+previous_Qs[str(count)] = qtoadd
+
+with open("questions.py", "wb") as file:
+    pickle.dump(previous_Qs, file)
